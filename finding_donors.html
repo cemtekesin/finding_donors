@@ -14023,21 +14023,31 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<h3 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">&#182;</a></h3><p>Because our dependent variable is binary, a natural choice appears as the Logistic Regression for the baseline estimates. Once this classical approach evaluated, Support Vector Machine (SVM) method is used.Last, to gain experience in another toolset, one of the most powerful ensemble methods, Gradient Boosting (GB) is analyzed. Each has its own strenghts and weaknesses as discussed below. As a bonus, I also combined these methods' estimates and generated a hard voting classifier at the end.</p>
-<h4 id="Model-1:Logictic-Regression">Model 1:Logictic Regression<a class="anchor-link" href="#Model-1:Logictic-Regression">&#182;</a></h4><p>Logistic regression ensures that posterior probabilities of the K classes via linear functions in x while at the sam time ensuring that they sum to one and remain in '[0,1]'.
+<h3 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">&#182;</a></h3><p>Because our dependent variable is binary, a natural choice appears as the Logistic Regression for the baseline estimates. Once this classical approach evaluated, Support Vector Machine (SVM) method is used.Last, to gain experience in another toolset, one of the most powerful ensemble methods, Gradient Boosting (GB) is analyzed. Each has its own strenghts and weaknesses as discussed below.</p>
+<h4 id="Model-1:Logictic-Regression">Model 1:Logictic Regression<a class="anchor-link" href="#Model-1:Logictic-Regression">&#182;</a></h4><p>Logistic regression ensures that posterior probabilities of the K classes via linear functions in x while at the sam time ensuring that they sum to one and remain in '[0,1]'.([3] , pg 119)
 A real-world example can be a spam e-mail classifier.
-This is a simple model to interpret and implementation is easy. Also very efficient to train.
-As for tje weaknesses, it assumes linearity of the relationship between dependent variable and features, which is hard to find in real world.</p>
-<h4 id="Model-2:-Support-Vector-Machines-(SVM)">Model 2: Support Vector Machines (SVM)<a class="anchor-link" href="#Model-2:-Support-Vector-Machines-(SVM)">&#182;</a></h4><p>SVM and LR considered closely related for linear case.
--Idea of finding a hyperplane that separates the data as well as possible while allowing some violations to this separation seemed distinctly different from classical approaches. Moreover, the idea of using a kernel to expand the feature space in order to accommodate non-linear class boundaries appeared to be a unique and vaaluable characteristic(ISL-pg356).
-Advantages(<a href="https://www.tandfonline.com/doi/full/10.1080/22797254.2018.1442179">https://www.tandfonline.com/doi/full/10.1080/22797254.2018.1442179</a>)
+This is a simple model to interpret and implementation is easy. Also very efficient to train and less prone to overfit.
+As for the weaknesses, it assumes linearity of the relationship between dependent variable and features, which is hard to find in real world.</p>
+<h4 id="Model-2:-Support-Vector-Machines-(SVM)">Model 2: Support Vector Machines (SVM)<a class="anchor-link" href="#Model-2:-Support-Vector-Machines-(SVM)">&#182;</a></h4><p>SVM and LR are closely related for linear case but find more use cases than Logistic regression.
+Real world applications varies from speech recognition to cancer diagnosis.
+-"Idea of finding a hyperplane that separates the data as well as possible while allowing some violations to this separation seemed distinctly different from classical approaches. Moreover, the idea of using a kernel to expand the feature space in order to accommodate non-linear class boundaries appeared to be a unique and valuable characteristic"([2] pg356).</p>
+<p>Advantages: (<a href="https://www.tandfonline.com/doi/full/10.1080/22797254.2018.1442179">https://www.tandfonline.com/doi/full/10.1080/22797254.2018.1442179</a>)
 -The main advantage of SVMs is the ability to transform the model to solve a nonlinear classification problem without any prior knowledge. The input vectors are re-projected to a higher-dimensional space in which they can be classified linearly using the so-called kernel trick 
 -Computationally more efficient.</p>
-<p>-Well suited for classification of complex small or medium sized datasets (pg153)
-Disadvantages:
--Sensitive to the feature scales(pg154)
--Blackbox compared to logistic regression in terms of interpretability of thee coefficients.</p>
-<h4 id="Model-3:-Gradient-Boosting">Model 3: Gradient Boosting<a class="anchor-link" href="#Model-3:-Gradient-Boosting">&#182;</a></h4><p>-Like in all sequential techniques, GB cannot be parallelized and does not scale as well as bagging or pasting.</p>
+<p>-Well suited for classification of complex small or medium sized datasets ([1]pg153)</p>
+<p>Disadvantages:
+-Sensitive to the feature scales([1]pg154)</p>
+<p>-Blackbox compared to logistic regression in terms of interpretability of the coefficients.</p>
+<h4 id="Model-3:-Gradient-Boosting-Classifier">Model 3: Gradient Boosting Classifier<a class="anchor-link" href="#Model-3:-Gradient-Boosting-Classifier">&#182;</a></h4><p>Gradient Boosting is a powerful sequential ensemble method.
+Advantages:
+Accuracy generally performs exceptionally good.
+Even if we did some pre-processing for the data, it usually requires less pre-processing than other methods ( general case for tree based methods)</p>
+<p>Disadvantages:
+Like in all sequential techniques, GB cannot be parallelized and does not scale as well as bagging or pasting ([1] pg201).
+Prone to overfit compared to ensemble models like Random Forests.</p>
+<h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><p>[1] Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow, 2nd Edition;Aurélien Géron;O'REILLY</p>
+<p>[2] Introduction to Statistical Learning with Applications in R; James G., Daniela W., Hastie T., Tibshirani R.;2017, Springer</p>
+<p>[3] Elements of Statistical Learning; Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie, 2009, Springer</p>
 
 </div>
 </div>
